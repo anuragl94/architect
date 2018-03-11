@@ -29,6 +29,9 @@ export default class Arc extends HTMLElement {
   static get observedAttributes () {
     return Object.keys(this.properties || {})
   }
+  get () {
+    return Object.assign({}, ...this.constructor.observedAttributes.map(key => ({ [key]: this[key] })))
+  }
   connectedCallback () {
     this.shadowroot.appendChild(this.render())
   }
@@ -69,4 +72,9 @@ export default class Arc extends HTMLElement {
     // Render should return a DOM tree
     throw new Error('Cannot initialize Component with no render method')
   }
+}
+
+export function generateModel (component, initialValue = {}) {
+  let model = new Proxy(component, {})
+  return Object.assign(model, initialValue)
 }

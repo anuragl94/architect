@@ -1,4 +1,4 @@
-import Arc from './src'
+import Arc, { generateModel } from './src'
 
 class XButton extends Arc {
   static get properties () {
@@ -16,7 +16,7 @@ class XButton extends Arc {
       : button.removeAttribute('disabled')
   }
   render () {
-    console.warn('Entire tree rendered')
+    this.shadowroot.children.length && console.warn('Entire tree rendered')
     let container = document.createElement('span')
     let button = document.createElement('button')
     button.innerText = 'Test success'
@@ -29,3 +29,10 @@ class XButton extends Arc {
 }
 
 customElements.define('x-button', XButton)
+
+let button = document.querySelector('x-button')
+
+let model = generateModel(button, { disabled: false })
+// Click to test how the model works
+button.onclick = e => { model.disabled = true }
+window.model = model
