@@ -1,0 +1,32 @@
+{
+  "name": "architect",
+  "version": "0.0.1",
+  "description": "A future friendly UI rendering library",
+  "scripts": {
+    "start": "http-server . -o",
+    "watch": "webpack --watch --mode development",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anuragl94/architect.git"
+  },
+  "author": "Anurag Lingam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anuragl94/architect/issues"
+  },
+  "homepage": "https://github.com/anuragl94/architect#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.40",
+    "@babel/core": "^7.0.0-beta.40",
+    "@babel/preset-env": "^7.0.0-beta.40",
+    "babel-loader": "^8.0.0",
+    "standard": "^11.0.0",
+    "webpack": "4.1.1",
+    "webpack-cli": "2.0.11"
+  },
+  "standard": {
+    "env": "browser"
+  }
+}
